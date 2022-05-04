@@ -24,12 +24,11 @@ function NextStep() {
     }
 
     
-    
+    //creates the answer buttons
     let nextAnswerContainer = document.createElement("div");
     let answerOne = document.createElement("button");
     let answerTwo = document.createElement("button");
     nextAnswerContainer.setAttribute("class", "answer-container");
-    
     answerOne.textContent = currentA;
     answerTwo.textContent = currentB;
     answerOne.setAttribute("onclick", "Answer('A')");
@@ -38,16 +37,16 @@ function NextStep() {
     answerTwo.setAttribute("id", "answerB");
  
     // Next Question text creation and placement
-    if(questionText.length > 0){
-        for(let i = 0; i < questionText.length; i++) {
-            let nextQuestion = document.createElement("div");
-            nextQuestion.textContent = questionText[i];
-            nextQuestion.setAttribute("class", "question");
-            currentDiv.insertAdjacentElement('beforeend', nextQuestion);
-        }
+    // This checks if the text is multiple lines, instead of just printing one big paragraph
+    for(let i = 0; i < questionText.length; i++) {
+        let nextQuestion = document.createElement("div");
+        nextQuestion.textContent = questionText[i];
+        nextQuestion.setAttribute("class", "question");
+        currentDiv.insertAdjacentElement('beforeend', nextQuestion);
     }
     
     
+    //Will not create an answer button if no answer is needed
     if(currentA !== "" || currentB !== ""){
         currentDiv.insertAdjacentElement('beforeend', nextAnswerContainer);
         nextAnswerContainer.insertAdjacentElement('beforeend', answerOne);
@@ -192,7 +191,7 @@ function CurrentQuestionSelector(question, answer) {
                     return currentQuestion, questionText;
             }
 
-        default: ""
+        default: "";
 
     }
 }
@@ -267,12 +266,8 @@ function SetQuestionText(currentQuestionVal) {
             questionText[0] =" Since your credit is holding you back from achieving your financial goals, I think a credit restoration company might be able to help. Give me a second while I get them on the line for you.";
             questionText[1] = "Hi, I have a customer on the line who’s interested in credit repair and pre-qualified for your program.";
             questionText[2] = "I’ll let you take over the call from here and they will take excellent care of you. Thanks";
-
-
-
-
-
-
+            break;
+        default: "";
 
         }
 }
