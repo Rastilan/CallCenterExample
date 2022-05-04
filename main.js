@@ -74,11 +74,13 @@ function NextStep() {
 SetQuestionText(currentQuestion);
 NextStep();
 
+//reloads the page to reset the call, simply refreshes the page
 function ResetAll(){
     window.location.reload();
     
 }
 
+//Detects and sets the answer value, currently only accepts two answers, but should be easily expandable
 function Answer(val) {
     if(val == "A"){
         document.getElementById("answerA").setAttribute("class", "selected");
@@ -94,6 +96,8 @@ function Answer(val) {
         console.log(val + " this incorrect value loaded into the Answer function");
     }
 }
+
+//sets next question based on answer
 function CurrentQuestionSelector(question, answer) {
     switch (question) {
         case 1:
@@ -240,6 +244,8 @@ function CurrentQuestionSelector(question, answer) {
 
     }
 }
+
+//sets question and answers. This is done in a seperate module to hopefully allow easy updating
 function SetQuestionText(currentQuestionVal) {
     switch (currentQuestionVal) {
         case 0:
