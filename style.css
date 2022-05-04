@@ -10,5 +10,7 @@
   .answer-container {
       display:flex;
       gap: 10px;
-      margin-bottom: 25px;
+  }
+  .question {
+      margin-top: 25px;
   }

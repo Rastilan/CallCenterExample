@@ -1,32 +1,73 @@
 let currentQuestion = 2;
-let questionText = "";
+let questionText = [];
 let currentAnswer = "";
 let currentA = "";
 let currentB = "";
-let endScript = "";
+let endingScripts = [];
 
 // This function prints the new DOM elements (The new question and its answers)
 function NextStep() {
+    //select root of document
     const currentDiv = document.getElementById("content");
+    //Show previous answer
+    if(document.getElementById("answerA") !== null){
+        if(document.getElementById("answerA").classList.contains("selected")){
+            let previousAnswer = document.createElement("div");
+            previousAnswer.textContent = currentA;
+            previousAnswer.setAttribute("class", "previous-answer");
+            document.getElementById("answerA").remove();
+            currentDiv.insertAdjacentElement('beforeend', previousAnswer);
+        }
+        else{
+            document.getElementById("answerA").remove();
+        }
+        
+    }
+    if(document.getElementById("answerB") !== null){
+        if(document.getElementById("answerB").classList.contains("selected")){
+            let previousAnswer = document.createElement("div");
+            previousAnswer.textContent = currentB;
+            previousAnswer.setAttribute("class", "previous-answer");
+            document.getElementById("answerB").remove();
+            currentDiv.insertAdjacentElement('beforeend', previousAnswer);
+        }
+        else{
+            document.getElementById("answerB").remove();
+        }
+    }
+
+    
     let nextQuestion = document.createElement("div");
     let nextAnswerContainer = document.createElement("div");
     let answerOne = document.createElement("button");
     let answerTwo = document.createElement("button");
     nextAnswerContainer.setAttribute("class", "answer-container");
-    nextQuestion.textContent = questionText;
+    
     answerOne.textContent = currentA;
     answerTwo.textContent = currentB;
     answerOne.setAttribute("onclick", "Answer('A')");
+    answerOne.setAttribute("id", "answerA");
     answerTwo.setAttribute("onclick", "Answer('B')");
+    answerTwo.setAttribute("id", "answerB");
+ 
+    // Next Question text creation and placement
+    nextQuestion.textContent = questionText;
+    nextQuestion.setAttribute("class", "question");
     currentDiv.insertAdjacentElement('beforeend', nextQuestion);
+    
     if(currentA !== "" || currentB !== ""){
         currentDiv.insertAdjacentElement('beforeend', nextAnswerContainer);
         nextAnswerContainer.insertAdjacentElement('beforeend', answerOne);
         nextAnswerContainer.insertAdjacentElement('beforeend', answerTwo);
     }
-    if(endScript !== ""){
-
+    if(endingScripts.length > 0){
+        for(let i = 0; i <= endingScripts.length; i++) {
+            let nextEndingScript = document.createElement("div");
+            nextEndingScript.textContent = endingScripts[i];
+            currentDiv.insertAdjacentElement('beforeend', nextEndingScript);
+        }
     }
+
     
 }
 // Sets our starting question and prints it to the page
@@ -35,10 +76,12 @@ NextStep();
 
 function Answer(val) {
     if(val == "A"){
+        document.getElementById("answerA").setAttribute("class", "selected");
         CurrentQuestionSelector(currentQuestion, 'A');
         NextStep();
     }
     else if(val == "B"){
+        document.getElementById("answerB").setAttribute("class", "selected");
         CurrentQuestionSelector(currentQuestion, 'B');
         NextStep();
     }
@@ -148,7 +191,7 @@ function CurrentQuestionSelector(question, answer) {
             switch(answer){
                 case "A":
                     currentQuestion = 12;
-                    questionText = SetQuestionText(currentQuestion);
+                    SetQuestionText(currentQuestion);
                     return currentQuestion, questionText;
                 case "B":
                     currentQuestion = 13;
@@ -192,7 +235,6 @@ function CurrentQuestionSelector(question, answer) {
 
     }
 }
-
 function SetQuestionText(currentQuestionVal) {
     switch (currentQuestionVal) {
         case 0:
@@ -234,7 +276,12 @@ function SetQuestionText(currentQuestionVal) {
         case 9: 
             currentA = "";
             currentB = "";
-            return questionText = "";
+            questionText = "Great, it sounds like you could be an ideal candidate for our non-profit Debt Management Program.";
+            endingScripts[0] = "Now, this option would combine your credit cards and other unsecured debt into one low affordable monthly payment at a much lower interest rate you have now.";
+            endingScripts[1] = "On this program you may have to close out some of your cards but most of our clients don't have a problem with that since all they want to do is pay them off anyways.";
+            endingScripts[2] = "What I am going to do is get you connected with a partner who specializes in this so they can give you a payment and quote, okay?";
+            endingScripts[3] = "Just one sec while I get my associate on the line with us.Transfer Number = TBD";
+            break;
         case 10: 
             currentA = "";
             currentB = "";
@@ -254,7 +301,9 @@ function SetQuestionText(currentQuestionVal) {
         case 14: 
             currentA = "";
             currentB = "";
-            return questionText = " Since your credit is holding you back from achieving your financial goals, I think a credit restoration company might be able to help.Give me a second while I get them on the line for you.";
+            questionText = " Since your credit is holding you back from achieving your financial goals, I think a credit restoration company might be able to help.Give me a second while I get them on the line for you.";
+            endingScripts[0] = "Hi, I have a customer on the line who’s interested in credit repair and pre-qualified for your program.";
+            endingScripts[1] = "I’ll let you take over the call from here and they will take excellent care of you. Thanks";
 
 
 
