@@ -1,12 +1,12 @@
 * {
     padding: 0px;
     margin: 0px;
-    background: rgb(214, 212, 212);
+    background: rgb(235, 233, 233)
 }
 
 #top-nav {
     padding: 10px;
-    background: orange;
+    background: #1c1f63;
 }
 
 #reload {
