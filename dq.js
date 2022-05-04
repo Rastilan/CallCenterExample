@@ -153,7 +153,7 @@ function CurrentQuestionSelector(question, answer) {
                     SetQuestionText(currentQuestion);
                     return currentQuestion, questionText;
                 case "B":
-                    currentQuestion = 8;
+                    currentQuestion = 11;
                     SetQuestionText(currentQuestion);
                     return currentQuestion, questionText;
             }

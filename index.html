@@ -9,20 +9,29 @@
     <title>Main Script</title>
 </head>
 <body>
-    <div id="top-nav">
-        <button id="reload" onclick="ResetAll()">New Call</button>
-        <button class="dq" onclick="window.location.href='./dq.html'">DQ</button>
-        <button class="utk" onclick="window.location.href='./utk.html'">UTK</button>
-    </div>
-    <div id="container">
-        <!--Left and right divs are for adding notes/FAQs -->
-        <div class="left"></div>
-        <div id = "center" class="center"></div>  
-        <div class="right">
-            <div id="faq-title">FAQ</div>
-            <div id="faq-content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
-                     
+    <body>
+        <div id="top-nav">
+            <button id="reload" onclick="ResetAll()">New Call</button>
+            <button class="dq" onclick="window.location.href='./dq.html'">DQ</button>
+            <button class="utk" onclick="window.location.href='./utk.html'">UTK</button>
         </div>
-    </div>
+        <div id="container">
+            <!--Left and right divs are for adding notes/FAQs -->
+            <div class="left"></div>
+            <div id="" class="center">
+                <div class="question">Determine Lead Type (DQ / &lt;10K)</div>
+                <div class="answer-container">
+                    <button class="dq" onclick="window.location.href='./dq.html'">DQ</button>
+                    <button class="utk" onclick="window.location.href='./utk.html'">&lt;10k</button>
+                </div>
+            </div>  
+            <div class="right">
+                <div id="faq-title">FAQ</div>
+                <div id="faq-content">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</div>
+                         
+            </div>
+        </div>
+    
+    </body>
 </body>
 </html>
