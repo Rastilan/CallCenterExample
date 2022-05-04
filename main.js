@@ -1,4 +1,4 @@
-let currentQuestion = 2;
+let currentQuestion = 1;
 let questionText = [];
 let currentAnswer = "";
 let currentA = "";
