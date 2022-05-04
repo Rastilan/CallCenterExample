@@ -74,6 +74,11 @@ function NextStep() {
 SetQuestionText(currentQuestion);
 NextStep();
 
+function ResetAll(){
+    window.location.reload();
+    
+}
+
 function Answer(val) {
     if(val == "A"){
         document.getElementById("answerA").setAttribute("class", "selected");
