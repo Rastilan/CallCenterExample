@@ -10,10 +10,10 @@ function NextStep() {
     //select root of document
     const currentDiv = document.getElementById("content");
     //Show previous answer
-    if(document.getElementById("answerA") !== null){
+    if(currentAnswer !== ""){
         if(document.getElementById("answerA").classList.contains("selected")){
             let previousAnswer = document.createElement("div");
-            previousAnswer.textContent = currentA;
+            previousAnswer.textContent = currentAnswer;
             previousAnswer.setAttribute("class", "previous-answer");
             document.getElementById("answerA").remove();
             currentDiv.insertAdjacentElement('beforeend', previousAnswer);
@@ -23,10 +23,10 @@ function NextStep() {
         }
         
     }
-    if(document.getElementById("answerB") !== null){
+    if(currentAnswer !== ""){
         if(document.getElementById("answerB").classList.contains("selected")){
             let previousAnswer = document.createElement("div");
-            previousAnswer.textContent = currentB;
+            previousAnswer.textContent = currentAnswer;
             previousAnswer.setAttribute("class", "previous-answer");
             document.getElementById("answerB").remove();
             currentDiv.insertAdjacentElement('beforeend', previousAnswer);
@@ -83,11 +83,14 @@ function ResetAll(){
 //Detects and sets the answer value, currently only accepts two answers, but should be easily expandable
 function Answer(val) {
     if(val == "A"){
+        currentAnswer = currentA;
         document.getElementById("answerA").setAttribute("class", "selected");
         CurrentQuestionSelector(currentQuestion, 'A');
         NextStep();
+        
     }
     else if(val == "B"){
+        currentAnswer = currentB;
         document.getElementById("answerB").setAttribute("class", "selected");
         CurrentQuestionSelector(currentQuestion, 'B');
         NextStep();
