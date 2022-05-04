@@ -18,21 +18,31 @@
     grid-template-columns: 1fr 4fr 1fr;
     
 }
+.dq,
+.utk{
+    width: 10em;
+}
 
-
-  .answer-container {
+.answer-container {
       display:flex;
       gap: 10px;
       
-  }
-  #answerA,
-  #answerB {
+}
+#answerA,
+#answerB {
     width: 6em;
-  }
+}
   .question {
       margin-top: 25px;
       
-  }
-  .previous-answer {
-    font-weight: bold;
-  }
+}
+.previous-answer {
+font-weight: bold;
+}
+#faq-title {
+font-weight: bold;
+padding: 10px 0px 15px 0px;
+}
+#faq-content {
+
+}
