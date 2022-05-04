@@ -10,7 +10,12 @@
   .answer-container {
       display:flex;
       gap: 10px;
+      
   }
   .question {
       margin-top: 25px;
+      
+  }
+  .previous-answer {
+    font-weight: bold;
   }
