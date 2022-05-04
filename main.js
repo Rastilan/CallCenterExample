@@ -1,5 +1,5 @@
 let currentQuestion = 2;
-let questionText = [];
+let questionText = "";
 let currentAnswer = "";
 let currentA = "";
 let currentB = "";
@@ -11,29 +11,16 @@ function NextStep() {
     const currentDiv = document.getElementById("content");
     //Show previous answer
     if(currentAnswer !== ""){
-        if(document.getElementById("answerA").classList.contains("selected")){
+        //create previous answer element
             let previousAnswer = document.createElement("div");
             previousAnswer.textContent = currentAnswer;
             previousAnswer.setAttribute("class", "previous-answer");
+            //remove old buttons
             document.getElementById("answerA").remove();
-            currentDiv.insertAdjacentElement('beforeend', previousAnswer);
-        }
-        else{
-            document.getElementById("answerA").remove();
-        }
-        
-    }
-    if(currentAnswer !== ""){
-        if(document.getElementById("answerB").classList.contains("selected")){
-            let previousAnswer = document.createElement("div");
-            previousAnswer.textContent = currentAnswer;
-            previousAnswer.setAttribute("class", "previous-answer");
             document.getElementById("answerB").remove();
+            //add previous answer to page
             currentDiv.insertAdjacentElement('beforeend', previousAnswer);
-        }
-        else{
-            document.getElementById("answerB").remove();
-        }
+
     }
 
     
@@ -108,7 +95,7 @@ function CurrentQuestionSelector(question, answer) {
                 case "A":
                     currentQuestion = 2;
                     SetQuestionText(currentQuestion);
-                    return currentQuestion;
+                    return currentQuestion, questionText;
 
                 case "B":
                     currentQuestion = 3;
@@ -120,7 +107,7 @@ function CurrentQuestionSelector(question, answer) {
                 case "A":
                     currentQuestion = 6;
                     SetQuestionText(currentQuestion);
-                    return currentQuestion;
+                    return currentQuestion, questionText;
 
                 case "B":
                     currentQuestion = 11;
@@ -166,14 +153,12 @@ function CurrentQuestionSelector(question, answer) {
                 case "A":
                     currentQuestion = 5;
                     SetQuestionText(currentQuestion);
-                    return currentQuestion, SetQuestionText(currentQuestion);
+                    return currentQuestion, questionText;
                 case "B":
                     currentQuestion = 8;
                     SetQuestionText(currentQuestion);
                     return currentQuestion, questionText;
             }
-        case 7:
-            break;
         case 8:
         switch(answer){
             case "A":
@@ -184,20 +169,6 @@ function CurrentQuestionSelector(question, answer) {
                 currentQuestion = 10;
                 SetQuestionText(currentQuestion);
                 return currentQuestion, questionText;     
-        }
-        case 9:
-        switch(answer){
-            case "A":
-
-            case "B":
-                
-        }
-        case 10:
-        switch(answer){
-            case "A":
-
-            case "B":
-                
         }
         case 11:
             switch(answer){
@@ -221,28 +192,7 @@ function CurrentQuestionSelector(question, answer) {
                     SetQuestionText(currentQuestion);
                     return currentQuestion, questionText;
             }
-        case 13:
-            switch(answer){
-                case "A":
-    
-                case "B":
-                    
-            }
-        case 14:
-            switch(answer){
-                case "A":
-    
-                case "B":
-                    
-            }
-        case 10:
-            switch(answer){
-                case "A":
-    
-                case "B":
-                    
-            }
-                    
+
         default: ""
 
     }
@@ -315,7 +265,7 @@ function SetQuestionText(currentQuestionVal) {
         case 14: 
             currentA = "";
             currentB = "";
-            questionText = " Since your credit is holding you back from achieving your financial goals, I think a credit restoration company might be able to help.Give me a second while I get them on the line for you.";
+            questionText = " Since your credit is holding you back from achieving your financial goals, I think a credit restoration company might be able to help. Give me a second while I get them on the line for you.";
             endingScripts[0] = "Hi, I have a customer on the line who’s interested in credit repair and pre-qualified for your program.";
             endingScripts[1] = "I’ll let you take over the call from here and they will take excellent care of you. Thanks";
 

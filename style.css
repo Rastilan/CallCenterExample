@@ -1,6 +1,6 @@
 #container {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
 }
 
 #content {
@@ -16,6 +16,10 @@
       display:flex;
       gap: 10px;
       
+  }
+  #answerA,
+  #answerB {
+    width: 6em;
   }
   .question {
       margin-top: 25px;
