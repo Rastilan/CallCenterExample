@@ -8,7 +8,7 @@ let currentB = "";
 // This function prints the new DOM elements (The new question and its answers)
 function NextStep() {
     //select root of document
-    const currentDiv = document.getElementById("content");
+    const currentDiv = document.getElementById("center");
     //Show previous answer
     if(currentAnswer !== ""){
         //create previous answer element
